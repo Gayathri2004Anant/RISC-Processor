@@ -1,0 +1,29 @@
+ADDI R2 R0 #10        //size of array (number of elements)
+ADDI R3 R0 #0         //outer loop iterator
+ADDI R3 R3 #1        //outer loop   
+SUBI R4 R2 #1  
+SUB R4 R3 R4         // i - (n-1) 
+BPL R4 #12           //if i >= n, exit loop
+LD R4 #0(R3)         //arr[i]
+SUBI R5 R3 #1       //inner loop iterator = j = i - 1
+LD R6 #0(R5)        //arr[j], inner loop
+ADDI R7 R4 #1
+SUB R7 R7 R6
+BPL R7 #4           //if array[j] < key+1, break inner loop
+ST #1(R5) R6        //array[j+1] = array[j]
+SUBI R5 R5 #1       //j--  
+ADDI R7 R5 #1
+BPL R7 #-8          //Continue if j+1 > 0
+ST #1(R5) R4          //arr[j+1] = key , insert
+BR #-16            // Move to the next element in the array
+LD R1 #0(R0)
+LD R1 #1(R0)
+LD R1 #2(R0)
+LD R1 #3(R0)
+LD R1 #4(R0)
+LD R1 #5(R0)
+LD R1 #6(R0)
+LD R1 #7(R0)
+LD R1 #8(R0)
+LD R1 #9(R0)
+HALT

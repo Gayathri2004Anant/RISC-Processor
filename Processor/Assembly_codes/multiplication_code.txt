@@ -1,0 +1,25 @@
+ADDI R1 R0 #10        
+ADDI R2 R0 #20       
+ADDI R3 R0 #32       
+ADDI R10 R3 #0        
+ADDI R11 R3 #-1      
+ADDI R4 R0 #0        
+ADDI R5 R0 #0       
+ANDI R7 R2 #1       
+SUB  R8 R7 R5       
+BZ   R8 #4            
+BPL  R8 #2           
+ADD  R4 R4 R1       
+BR    #1             
+SUB  R4 R4 R1  
+ANDI R6 R4 #1        
+SRAI  R4 R4 #1       
+SRLI  R2 R2 #1      
+SL  R6 R6 R11     
+ADD  R2 R2 R6       
+ADDI R5 R7 #0           
+SUBI R10 R10 #1      
+BPL  R10 #-15    
+SLI  R4 R4 #32      
+ADD  R4 R4 R2       
+HALT                 
